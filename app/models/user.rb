@@ -32,6 +32,9 @@ class User < ActiveRecord::Base
   def site_admin?
   end
 
+  def secretary?
+  end
+
   def agent?
     roles.include? "agent"
   end
