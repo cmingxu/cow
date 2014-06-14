@@ -1,0 +1,25 @@
+%legend 
+  所有消息
+  %span.pull-right
+    = link_to icon_link(:plus) + "  新消息", new_admin_visit_path
+
+%table.table.table-stripped
+  %thead
+    %th 标题
+    %th 发布日期
+    %th 阅读人数
+    %th
+
+  - @visits.each do |visit|
+    %tr
+      %td{:class => current_user.visit_read?(visit) ? "" : "visit_title_red"}
+        = link_to visit.title, admin_visit_path(visit)
+      %td= visit.created_at.to_s(:human_zh_year)
+      %td= visit.visit_users.readed.count
+      %td
+        - if current_user.can_create_visit?
+          = link_to icon_link(:search), edit_admin_visit_path(visit)
+
+
+= paginate @visits
+

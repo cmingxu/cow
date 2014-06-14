@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Visit type:
+  = @visit.visit_type
+%p
+  %b User:
+  = @visit.user_id
+%p
+  %b Desc:
+  = @visit.desc
+
+= link_to 'Edit', edit_visit_path(@visit)
+\|
+= link_to 'Back', visits_path

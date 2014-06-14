@@ -1,0 +1,14 @@
+default: &default
+  site_name: "XX房产销售有限公司"
+  easy_login_enable: true
+
+
+development: 
+  <<: *default
+
+production: 
+  <<: *default
+  easy_login_enable: true
+
+test: 
+  <<: *default

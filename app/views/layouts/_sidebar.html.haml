@@ -1,0 +1,21 @@
+%ul.nav.nav-tabs.nav-stacked
+  %li.dashboard
+    = link_to icon_link(:heart) + " 首页", admin_dashboard_path
+  - if current_user.site_admin?
+    %li.clients
+      = link_to icon_link(:heart) + " 客户管理", admin_clients_path
+  - if current_user.boss?
+    %li.applications
+      = link_to icon_link(:heart) + " 项目管理", admin_applications_path
+    %li.visits
+      = link_to icon_link(:heart) + " 来访管理", admin_visits_path
+    %li.messages
+      = link_to icon_link(:heart) + " 消息管理", admin_messages_path
+    %li.contracts
+      = link_to icon_link(:heart) + " 合同管理", admin_contracts_path
+    %li.configurations
+      = link_to icon_link(:heart) + " 配置管理", admin_configuration_path
+
+  - if current_user.agent?
+    %li.visits
+      = link_to icon_link(:heart) + " 来访管理", admin_visits_path

@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @contract.name
+%p
+  %b Sign date:
+  = @contract.sign_date
+%p
+  %b Added by:
+  = @contract.added_by_id
+%p
+  %b Code:
+  = @contract.code
+%p
+  %b Desc:
+  = @contract.desc
+
+= link_to 'Edit', edit_contract_path(@contract)
+\|
+= link_to 'Back', contracts_path
