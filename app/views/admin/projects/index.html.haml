@@ -1,0 +1,39 @@
+%h1 Listing projects
+
+%table
+  %tr
+    %th Name
+    %th Address
+    %th Code
+    %th Created by
+    %th Desc
+    %th Builder
+    %th Wuye
+    %th Jianli
+    %th Build begin at
+    %th Build end at
+    %th Desc
+    %th
+    %th
+    %th
+
+  - @projects.each do |project|
+    %tr
+      %td= project.name
+      %td= project.address
+      %td= project.code
+      %td= project.created_by
+      %td= project.desc
+      %td= project.builder
+      %td= project.wuye
+      %td= project.jianli
+      %td= project.build_begin_at
+      %td= project.build_end_at
+      %td= project.desc
+      %td= link_to 'Show', project
+      %td= link_to 'Edit', edit_project_path(project)
+      %td= link_to 'Destroy', project, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Project', new_project_path

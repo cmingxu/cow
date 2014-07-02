@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @huxing.name
+%p
+  %b Client:
+  = @huxing.client_id
+%p
+  %b Created by:
+  = @huxing.created_by
+%p
+  %b Desc:
+  = @huxing.desc
+
+= link_to 'Edit', edit_huxing_path(@huxing)
+\|
+= link_to 'Back', huxings_path

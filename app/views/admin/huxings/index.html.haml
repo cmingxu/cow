@@ -1,0 +1,25 @@
+%h1 Listing huxings
+
+%table
+  %tr
+    %th Name
+    %th Client
+    %th Created by
+    %th Desc
+    %th
+    %th
+    %th
+
+  - @huxings.each do |huxing|
+    %tr
+      %td= huxing.name
+      %td= huxing.client_id
+      %td= huxing.created_by
+      %td= huxing.desc
+      %td= link_to 'Show', huxing
+      %td= link_to 'Edit', edit_huxing_path(huxing)
+      %td= link_to 'Destroy', huxing, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Huxing', new_huxing_path

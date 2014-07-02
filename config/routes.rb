@@ -5,6 +5,18 @@ Cow::Application.routes.draw do
 
 
 
+  resources :departments
+
+
+  resources :book_records
+
+
+  resources :huxings
+
+
+  resources :projects
+
+
   resources :bugs
 
 

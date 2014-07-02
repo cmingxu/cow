@@ -1,0 +1,39 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @project.name
+%p
+  %b Address:
+  = @project.address
+%p
+  %b Code:
+  = @project.code
+%p
+  %b Created by:
+  = @project.created_by
+%p
+  %b Desc:
+  = @project.desc
+%p
+  %b Builder:
+  = @project.builder
+%p
+  %b Wuye:
+  = @project.wuye
+%p
+  %b Jianli:
+  = @project.jianli
+%p
+  %b Build begin at:
+  = @project.build_begin_at
+%p
+  %b Build end at:
+  = @project.build_end_at
+%p
+  %b Desc:
+  = @project.desc
+
+= link_to 'Edit', edit_project_path(@project)
+\|
+= link_to 'Back', projects_path

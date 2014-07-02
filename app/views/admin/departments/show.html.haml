@@ -1,0 +1,24 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @department.name
+%p
+  %b Size:
+  = @department.size
+%p
+  %b Chaoxiang:
+  = @department.chaoxiang
+%p
+  %b Client:
+  = @department.client_id
+%p
+  %b Project:
+  = @department.project_id
+%p
+  %b Created by:
+  = @department.created_by
+
+= link_to 'Edit', edit_department_path(@department)
+\|
+= link_to 'Back', departments_path

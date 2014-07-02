@@ -1,0 +1,29 @@
+%h1 Listing departments
+
+%table
+  %tr
+    %th Name
+    %th Size
+    %th Chaoxiang
+    %th Client
+    %th Project
+    %th Created by
+    %th
+    %th
+    %th
+
+  - @departments.each do |department|
+    %tr
+      %td= department.name
+      %td= department.size
+      %td= department.chaoxiang
+      %td= department.client_id
+      %td= department.project_id
+      %td= department.created_by
+      %td= link_to 'Show', department
+      %td= link_to 'Edit', edit_department_path(department)
+      %td= link_to 'Destroy', department, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Department', new_department_path

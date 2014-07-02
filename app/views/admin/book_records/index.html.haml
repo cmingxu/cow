@@ -1,0 +1,27 @@
+%h1 Listing book_records
+
+%table
+  %tr
+    %th Client
+    %th User
+    %th Project
+    %th Department
+    %th Price
+    %th
+    %th
+    %th
+
+  - @book_records.each do |book_record|
+    %tr
+      %td= book_record.client_id
+      %td= book_record.user_id
+      %td= book_record.project_id
+      %td= book_record.department_id
+      %td= book_record.price
+      %td= link_to 'Show', book_record
+      %td= link_to 'Edit', edit_book_record_path(book_record)
+      %td= link_to 'Destroy', book_record, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Book record', new_book_record_path

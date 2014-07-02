@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b Client:
+  = @book_record.client_id
+%p
+  %b User:
+  = @book_record.user_id
+%p
+  %b Project:
+  = @book_record.project_id
+%p
+  %b Department:
+  = @book_record.department_id
+%p
+  %b Price:
+  = @book_record.price
+
+= link_to 'Edit', edit_book_record_path(@book_record)
+\|
+= link_to 'Back', book_records_path
