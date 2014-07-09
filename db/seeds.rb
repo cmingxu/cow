@@ -9,5 +9,10 @@
 #
 
 require "faker"
-User.create! :name => "经理", :login => "admin", :password => "adminadmin",
+
+client = Client.create! :name => "XX房地产公司", :contact_person => "侯杰", :contact_tel => "010-1234532"
+client.users.create! :name => "经理", :login => "admin", :password => "adminadmin",
   :password_confirmation => "adminadmin", :email => "adminadmin@admin.com", :roles => ["boss"], :mobile => '13811223212'
+
+
+

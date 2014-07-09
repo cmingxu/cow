@@ -1,18 +1,11 @@
 # -*- encoding : utf-8 -*-
 Cow::Application.routes.draw do
-
-
-
-
-
-
-
+  resources :bugs
   namespace :admin do
     resources :huxings
     resources :book_records
     resources :departments
     resources :projects
-    resources :bugs
     resources :visits
     resources :applications
     resources :contracts

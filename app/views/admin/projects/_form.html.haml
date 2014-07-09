@@ -1,43 +1,25 @@
-= form_for @project do |f|
-  - if @project.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@project.errors.count, "error")} prohibited this project from being saved:"
-      %ul
-        - @project.errors.full_messages.each do |msg|
-          %li= msg
+= form_for [:admin, @project], :class => "form form-horizontal" do |f|
 
-  .field
-    = f.label :name
-    = f.text_field :name
-  .field
-    = f.label :address
-    = f.text_field :address
-  .field
-    = f.label :code
-    = f.text_field :code
-  .field
-    = f.label :created_by
-    = f.number_field :created_by
-  .field
-    = f.label :desc
-    = f.text_field :desc
-  .field
-    = f.label :builder
-    = f.text_field :builder
-  .field
-    = f.label :wuye
-    = f.text_field :wuye
-  .field
-    = f.label :jianli
-    = f.text_field :jianli
-  .field
-    = f.label :build_begin_at
-    = f.datetime_select :build_begin_at
-  .field
-    = f.label :build_end_at
-    = f.datetime_select :build_end_at
-  .field
-    = f.label :desc
+  = control_group_helper "项目名称", "例如: 关于xxx的通知", f.object.errors[:title].first do
+    = f.text_field :name, :class => "input-xxlarge"
+
+  = control_group_helper "项目地址", "例如: 关于xxx的通知", f.object.errors[:title].first do
+    = f.text_field :address, :class => "input-xxlarge"
+
+  = control_group_helper "建筑商", "例如: 关于xxx的通知", f.object.errors[:title].first do
+    = f.text_field :builder, :class => "input-xxlarge"
+
+  = control_group_helper "物业", "例如: 关于xxx的通知", f.object.errors[:title].first do
+    = f.text_field :wuye, :class => "input-xxlarge"
+
+  = control_group_helper "建造开始时间", "例如: 关于xxx的通知", f.object.errors[:title].first do
+    = f.text_field :build_begin_at, :class => "", :class => "input-xxlarge"
+
+  = control_group_helper "建造结束时间", "例如: 关于xxx的通知", f.object.errors[:title].first do
+    = f.text_field :build_end_at, :class => "input-xxlarge"
+
+  = control_group_helper "项目描述", "例如: 关于xxx的通知", f.object.errors[:title].first do
     = f.text_area :desc
   .actions
-    = f.submit 'Save'
+    = f.submit '保存', :class => "btn btn-primary"
+    = link_to "返回", admin_projects_path, :class => "btn btn-primary"

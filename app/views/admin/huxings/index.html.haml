@@ -1,25 +1,20 @@
-%h1 Listing huxings
+%legend 
+  所有户型
+  - if current_user.can_create_huxing?
+    %span.pull-right
+      = link_to icon_link(:plus) + "  新户型", new_admin_huxing_path
 
-%table
-  %tr
-    %th Name
-    %th Client
-    %th Created by
-    %th Desc
-    %th
-    %th
+%table.table.table-stripped
+  %thead
+    %th 户型名称
+    %th 面积
     %th
 
   - @huxings.each do |huxing|
     %tr
-      %td= huxing.name
-      %td= huxing.client_id
-      %td= huxing.created_by
-      %td= huxing.desc
-      %td= link_to 'Show', huxing
-      %td= link_to 'Edit', edit_huxing_path(huxing)
-      %td= link_to 'Destroy', huxing, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %td= link_to huxing.name, admin_huxing_path(huxing)
+      %td
 
-%br
 
-= link_to 'New Huxing', new_huxing_path
+= paginate @huxings
+

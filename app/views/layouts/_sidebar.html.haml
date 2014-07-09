@@ -5,8 +5,10 @@
     %li.clients
       = link_to icon_link(:heart) + " 客户管理", admin_clients_path
   - if current_user.boss?
-    %li.applications
-      = link_to icon_link(:heart) + " 项目管理", admin_applications_path
+    %li.projects
+      = link_to icon_link(:heart) + " 项目管理", admin_projects_path
+    %li.huxings
+      = link_to icon_link(:heart) + " 户型管理", admin_huxings_path
     %li.visits
       = link_to icon_link(:heart) + " 来访管理", admin_visits_path
     %li.contracts

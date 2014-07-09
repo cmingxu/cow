@@ -2,6 +2,12 @@
 class Admin::BaseController < ApplicationController
   before_filter :authenticate_user!
 
+  def current_client
+    current_user.client
+  end
+
+  helper_method :current_client
+
   def dashboard
     if current_user.boss?
       render "boss_dashboard"

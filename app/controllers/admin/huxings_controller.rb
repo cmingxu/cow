@@ -1,8 +1,8 @@
-class HuxingsController < ApplicationController
+class Admin::HuxingsController < Admin::BaseController
   # GET /huxings
   # GET /huxings.json
   def index
-    @huxings = Huxing.all
+    @huxings = current_client.huxings.page params[:page]
 
     respond_to do |format|
       format.html # index.html.erb

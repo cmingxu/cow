@@ -1,8 +1,8 @@
-class ProjectsController < ApplicationController
+class Admin::ProjectsController < Admin::BaseController
   # GET /projects
   # GET /projects.json
   def index
-    @projects = Project.all
+    @projects = current_client.projects.page params[:page]
 
     respond_to do |format|
       format.html # index.html.erb

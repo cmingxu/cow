@@ -5,6 +5,7 @@ class CreateProjects < ActiveRecord::Migration
       t.string :address
       t.string :code
       t.integer :created_by
+      t.integer :client_id
       t.string :desc
       t.string :builder
       t.string :wuye

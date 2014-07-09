@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140702052444) do
+ActiveRecord::Schema.define(:version => 20140709150350) do
 
   create_table "applications", :force => true do |t|
     t.string   "name"
@@ -111,6 +111,7 @@ ActiveRecord::Schema.define(:version => 20140702052444) do
     t.string   "address"
     t.string   "code"
     t.integer  "created_by"
+    t.integer  "client_id"
     t.string   "desc"
     t.string   "builder"
     t.string   "wuye"
@@ -138,6 +139,7 @@ ActiveRecord::Schema.define(:version => 20140702052444) do
     t.string   "mobile"
     t.string   "login"
     t.string   "roles"
+    t.integer  "client_id"
   end
 
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true

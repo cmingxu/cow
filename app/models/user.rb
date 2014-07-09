@@ -20,12 +20,21 @@ class User < ActiveRecord::Base
 
   has_many :message_users
   has_many :messages, :through => :message_users
+  belongs_to :client
 
   def boss?
     roles.include? "boss"
   end
 
   def can_create_message?
+    self.boss? 
+  end
+
+  def can_create_project?
+    self.boss? 
+  end
+
+  def can_create_huxing?
     self.boss? 
   end
 

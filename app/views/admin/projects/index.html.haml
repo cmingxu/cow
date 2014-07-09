@@ -1,39 +1,20 @@
-%h1 Listing projects
+%legend 
+  所有项目
+  - if current_user.can_create_project?
+    %span.pull-right
+      = link_to icon_link(:plus) + "  新项目", new_admin_project_path
 
-%table
-  %tr
-    %th Name
-    %th Address
-    %th Code
-    %th Created by
-    %th Desc
-    %th Builder
-    %th Wuye
-    %th Jianli
-    %th Build begin at
-    %th Build end at
-    %th Desc
-    %th
-    %th
+%table.table.table-stripped
+  %thead
+    %th 项目名称
+    %th 项目地址
     %th
 
   - @projects.each do |project|
     %tr
-      %td= project.name
+      %td= link_to project.title, admin_project_path(project)
       %td= project.address
-      %td= project.code
-      %td= project.created_by
-      %td= project.desc
-      %td= project.builder
-      %td= project.wuye
-      %td= project.jianli
-      %td= project.build_begin_at
-      %td= project.build_end_at
-      %td= project.desc
-      %td= link_to 'Show', project
-      %td= link_to 'Edit', edit_project_path(project)
-      %td= link_to 'Destroy', project, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %td
 
-%br
 
-= link_to 'New Project', new_project_path
+= paginate @projects
