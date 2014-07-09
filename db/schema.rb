@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140614140233) do
+ActiveRecord::Schema.define(:version => 20140702052444) do
 
   create_table "applications", :force => true do |t|
     t.string   "name"
@@ -19,6 +19,16 @@ ActiveRecord::Schema.define(:version => 20140614140233) do
     t.text     "description"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+  end
+
+  create_table "book_records", :force => true do |t|
+    t.integer  "client_id"
+    t.integer  "user_id"
+    t.integer  "project_id"
+    t.string   "department_id"
+    t.float    "price"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
   create_table "bugs", :force => true do |t|
@@ -43,6 +53,26 @@ ActiveRecord::Schema.define(:version => 20140614140233) do
     t.text     "desc"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+  end
+
+  create_table "departments", :force => true do |t|
+    t.string   "name"
+    t.float    "size"
+    t.string   "chaoxiang"
+    t.integer  "client_id"
+    t.integer  "project_id"
+    t.integer  "created_by"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "huxings", :force => true do |t|
+    t.string   "name"
+    t.integer  "client_id"
+    t.integer  "created_by"
+    t.text     "desc"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "message_users", :force => true do |t|
@@ -74,6 +104,21 @@ ActiveRecord::Schema.define(:version => 20140614140233) do
     t.datetime "updated_at", :null => false
     t.string   "name"
     t.string   "title"
+  end
+
+  create_table "projects", :force => true do |t|
+    t.string   "name"
+    t.string   "address"
+    t.string   "code"
+    t.integer  "created_by"
+    t.string   "desc"
+    t.string   "builder"
+    t.string   "wuye"
+    t.string   "jianli"
+    t.datetime "build_begin_at"
+    t.datetime "build_end_at"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
   end
 
   create_table "users", :force => true do |t|
